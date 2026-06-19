@@ -1,0 +1,425 @@
+/* ============================================================
+   TOKENS DE DESIGN
+   Tudo (cores, fontes) sai daqui. Mudou aqui, mudou no site todo.
+   ============================================================ */
+:root {
+  --bg: #0b0c10;
+  --panel: #15171e;
+  --panel-2: #1c1f28;
+  --border: #2a2e3a;
+  --text: #e8eaed;
+  --muted: #9aa0ac;
+  --accent: #6e56f8;
+  --accent-soft: rgba(110, 86, 248, 0.14);
+  --gold: #e3b341;
+
+  --fonte-titulo: 'Space Grotesk', system-ui, sans-serif;
+  --fonte-texto: 'Inter', system-ui, sans-serif;
+  --fonte-mono: 'JetBrains Mono', 'Courier New', monospace;
+
+  --raio: 14px;
+  --max: 920px;
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(900px 500px at 80% -10%, rgba(110, 86, 248, 0.16), transparent 60%),
+    var(--bg);
+  color: var(--text);
+  font-family: var(--fonte-texto);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ============================================================
+   LAYOUT GERAL
+   ============================================================ */
+.app {
+  width: 100%;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 32px 20px 64px;
+}
+
+.header {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.header__logo {
+  font-family: var(--fonte-mono);
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: -0.5px;
+  color: var(--text);
+}
+
+.header__logo::before {
+  content: '◆ ';
+  color: var(--accent);
+}
+
+.header__tag {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.footer {
+  margin-top: 48px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-family: var(--fonte-mono);
+}
+
+/* ============================================================
+   BARRA DE BUSCA (o elemento de destaque, estilo terminal)
+   ============================================================ */
+.search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--raio);
+  padding: 8px 8px 8px 16px;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.search:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-soft);
+}
+
+.search__prompt {
+  font-family: var(--fonte-mono);
+  font-size: 0.92rem;
+  color: var(--accent);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.search__input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text);
+  font-family: var(--fonte-mono);
+  font-size: 0.98rem;
+  padding: 8px 0;
+}
+
+.search__input::placeholder {
+  color: #5b6170;
+}
+
+.search__button {
+  font-family: var(--fonte-mono);
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #fff;
+  background: var(--accent);
+  border: none;
+  border-radius: 10px;
+  padding: 11px 20px;
+  cursor: pointer;
+  transition: transform 0.12s ease, opacity 0.18s ease;
+}
+
+.search__button:hover {
+  transform: translateY(-1px);
+}
+
+.search__button:disabled {
+  opacity: 0.6;
+  cursor: default;
+  transform: none;
+}
+
+/* ============================================================
+   CARTÃO DO USUÁRIO
+   ============================================================ */
+.user {
+  display: flex;
+  gap: 22px;
+  align-items: flex-start;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--raio);
+  padding: 24px;
+}
+
+.user__avatar {
+  width: 92px;
+  height: 92px;
+  border-radius: 16px;
+  border: 2px solid var(--accent);
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+.user__info {
+  min-width: 0;
+}
+
+.user__name {
+  font-family: var(--fonte-titulo);
+  font-size: 1.45rem;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.user__login {
+  display: inline-block;
+  font-family: var(--fonte-mono);
+  color: var(--accent);
+  font-size: 0.9rem;
+  margin-top: 2px;
+}
+
+.user__login:hover {
+  text-decoration: underline;
+}
+
+.user__bio {
+  color: var(--muted);
+  margin: 12px 0 0;
+  line-height: 1.55;
+  font-size: 0.95rem;
+}
+
+.user__stats {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+  margin: 18px 0 0;
+  padding: 0;
+}
+
+.user__stats li {
+  display: flex;
+  flex-direction: column;
+}
+
+.user__stats strong {
+  font-family: var(--fonte-titulo);
+  font-size: 1.2rem;
+}
+
+.user__stats span {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+/* ============================================================
+   LISTA E CARTÕES DE REPOSITÓRIO
+   ============================================================ */
+.repos__titulo {
+  font-family: var(--fonte-titulo);
+  font-size: 1.1rem;
+  margin: 0 0 16px;
+}
+
+.repos__titulo span {
+  color: var(--muted);
+  font-weight: 500;
+  font-size: 0.88rem;
+}
+
+.repos__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.repos__vazio {
+  color: var(--muted);
+  text-align: center;
+  padding: 24px;
+}
+
+.repo {
+  display: flex;
+  flex-direction: column;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--cor-linguagem, var(--border));
+  border-radius: var(--raio);
+  padding: 18px;
+  transition: transform 0.14s ease, border-color 0.14s ease, background 0.14s ease;
+}
+
+.repo:hover {
+  transform: translateY(-3px);
+  background: var(--panel-2);
+}
+
+.repo__name {
+  font-family: var(--fonte-mono);
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0;
+  color: var(--text);
+  word-break: break-word;
+}
+
+.repo:hover .repo__name {
+  color: var(--accent);
+}
+
+.repo__desc {
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.5;
+  margin: 8px 0 16px;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.repo__meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.repo__lang {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.repo__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.repo__stars {
+  color: var(--gold);
+}
+
+/* ============================================================
+   ESTADOS (inicial, carregando, erro)
+   ============================================================ */
+.estado {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+  padding: 56px 20px;
+  background: var(--panel);
+  border: 1px dashed var(--border);
+  border-radius: var(--raio);
+}
+
+.estado__icone {
+  font-family: var(--fonte-mono);
+  font-size: 2rem;
+  color: var(--muted);
+}
+
+.estado__icone--inicial {
+  color: var(--accent);
+}
+
+.estado__texto {
+  color: var(--muted);
+  margin: 0;
+  max-width: 360px;
+  line-height: 1.5;
+}
+
+.estado__spinner {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 3px solid var(--border);
+  border-top-color: var(--accent);
+  animation: girar 0.8s linear infinite;
+}
+
+@keyframes girar {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ============================================================
+   RESPONSIVO (celular)
+   ============================================================ */
+@media (max-width: 640px) {
+  .repos__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .user {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .user__stats {
+    justify-content: center;
+  }
+
+  .search {
+    flex-wrap: wrap;
+  }
+
+  .search__prompt {
+    width: 100%;
+  }
+}
+
+/* Respeita quem prefere menos animações */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Foco visível para navegação por teclado */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
