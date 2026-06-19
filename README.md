@@ -2,23 +2,20 @@
 
 Busque qualquer perfil do **GitHub** e explore os repositórios mais estrelados em segundos. Uma aplicação front-end feita para praticar consumo de API, gerenciamento de estado e design de interface.
 
-> 🔗 **Demo online:** _adicione aqui o link depois de publicar na Vercel/Netlify_
->
-> 🖼️ _Dica: tire um print ou grave um gif do projeto rodando e coloque aqui — é o que mais chama atenção de quem visita._
+🔗 **Demo online:** [buscador-git-hub-alpha.vercel.app](https://buscador-git-hub-alpha.vercel.app/)
 
----
 
-## ✨ Funcionalidades
+✨ Funcionalidades
 
 - Busca de qualquer usuário público do GitHub pelo nome de usuário
 - Exibe avatar, nome, bio e estatísticas (repositórios, seguidores, seguindo)
 - Lista os repositórios ordenados pelos mais estrelados
-- Mostra linguagem (com a cor oficial do GitHub), estrelas e data da última atualização
+- Mostra a linguagem (com a cor oficial do GitHub), estrelas e data da última atualização
 - Tratamento de estados: tela inicial, carregamento, erro e usuário não encontrado
 - Layout totalmente responsivo (funciona bem no celular)
 - Acessível: navegação por teclado e suporte a `prefers-reduced-motion`
 
-## 🛠️ Tecnologias
+🛠️ Tecnologias
 
 - [React](https://react.dev/) — biblioteca de interface
 - [Vite](https://vite.dev/) — build e servidor de desenvolvimento
@@ -62,12 +59,6 @@ src/
 ├── App.jsx                 # componente principal
 ├── main.jsx                # ponto de entrada
 └── index.css               # estilos e tokens de design
-```
 
-## 📌 Observação sobre a API
 
-A API pública do GitHub permite cerca de **60 requisições por hora** sem autenticação. Se você atingir esse limite, a aplicação mostra uma mensagem avisando para tentar novamente mais tarde — é o comportamento esperado.
-
----
-
-Feito com 💜 por _seu-nome-aqui_
+Feito por [Murillo Campanha](https://github.com/MurilloCampanha0)
